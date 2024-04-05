@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
 
-    private  final  UserRepo userRepo;
+    private final UserRepo userRepo;
 
-    public CustomResponse<?>addUser(Users users){
-        CustomResponse<?>
+    public CustomResponse<?> addUser(Users users) {
+return  null;
     }
+
 }
