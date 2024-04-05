@@ -3,10 +3,7 @@ package com.Jemutai.WingsToFly.Platform.claims;
 import com.Jemutai.WingsToFly.Platform.scholar.Scholar;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +16,21 @@ public class ClaimsController {
 
     public  ResponseEntity<?> addClaim(@RequestBody Claims claims){
         var  response = claimsService.addClaim(claims);
+        return  ResponseEntity.status(response.getStatusCode()).body(response);
+    }
+
+
+    @GetMapping("/")
+
+    public  ResponseEntity <?> findClaims(){
+        var response = claimsService.getClaims();
+        return  ResponseEntity.status(response.getStatusCode()).body(response);
+    }
+
+    @GetMapping("/{sname}")
+
+    public  ResponseEntity <?> findBySname(@PathVariable String sname){
+        var response = claimsService.findBySname(sname);
         return  ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
